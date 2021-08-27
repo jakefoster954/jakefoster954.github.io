@@ -8,6 +8,7 @@
 html{
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth; /* Provides smooth scrolling on single page when link is clicked */
 }
 a{
     text-decoration: none;;
