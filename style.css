@@ -14,6 +14,7 @@ html {
 
 a {
     text-decoration: none;
+    color: #f9812a;
 }
 
 .container {
@@ -39,6 +40,11 @@ p {
     letter-spacing: .05rem;
 }
 
+p span {
+    color: #f9812a;
+    font-weight: bold;
+}
+
 .section-title {
     font-size: 4rem;
     font-weight: 300;
@@ -50,7 +56,7 @@ p {
 }
 
 .section-title span {
-    color: crimson;
+    color: #f9812a;
 }
 
 .cta {
@@ -58,7 +64,7 @@ p {
     padding: 10px 30px;
     color: white;
     background-color: transparent;
-    border: 2px solid crimson;
+    border: 2px solid #f9812a;
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: .1rem;
@@ -70,7 +76,7 @@ p {
 
 .cta:hover {
     color: white;
-    background-color: crimson;
+    background-color: #f9812a;
 }
 
 .brand h1 {
@@ -80,7 +86,7 @@ p {
 }
 
 .brand h1 span {
-    color: crimson;
+    color: #f9812a;
 }
 
 /* Header Section */
@@ -163,7 +169,7 @@ p {
 }
 
 #header .nav-list ul li:hover a {
-    color: crimson;
+    color: #f9812a;
 }
 
 #header .hamburger {
@@ -232,7 +238,7 @@ p {
 /* Hero Section */
 
 #hero {
-    background-image: url(./img/hero-bg.png);
+    background-image: url(./img/hero-bg.jpg);
     background-size: cover;
     background-position: top center;
     position: relative;
@@ -287,7 +293,7 @@ p {
     left: 0;
     height: 100%;
     width: 0;
-    background-color: crimson;
+    background-color: #f9812a;
     animation: text_reveal_box 1s ease;
     animation-delay: .5s;
 }
@@ -454,7 +460,7 @@ p {
     top: 0;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    background-image: linear-gradient(60deg, #2f3944 0%, #485563 100%);
     opacity: .7;
 }
 
@@ -510,7 +516,7 @@ p {
     /* Important for some reason. Can see bottom of read bar behind image otherwise */
     width: 100%;
     position: relative;
-    border: 10px solid white;
+    border: 10px solid black;
 }
 
 #about .col-left .about-img::after {
@@ -520,10 +526,9 @@ p {
     top: 19px;
     height: 98%;
     width: 98%;
-    border: 7px solid crimson;
+    border: 7px solid #f9812a;
     z-index: -1;
 }
-
 /* End About Me */
 
 /* Contacts */
@@ -647,7 +652,7 @@ p {
 
 @keyframes text_reveal_name {
     100% {
-        color: crimson;
+        color: #f9812a;
         /*font-weight: 500;*/
     }
 }
@@ -718,7 +723,7 @@ p {
         top: 34px;
         height: 98%;
         width: 98%;
-        border: 10px solid crimson;
+        border: 10px solid #f9812a;
     }
     #about .about .col-right {
         text-align: left;
