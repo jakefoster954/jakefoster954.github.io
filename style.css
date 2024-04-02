@@ -540,7 +540,7 @@ p span {
 }
 
 #contact .contact-items {
-    width: 500px;
+    width: 100%;
 }
 
 #contact .contact-item {
