@@ -1,25 +1,55 @@
-const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
-const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
-const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
+const menuButton = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('#main-menu');
+const menuItems = mobileMenu.querySelectorAll('a');
 const header = document.querySelector('.header.container');
+const interestCards = document.querySelectorAll('.project-item');
+const desktopMedia = window.matchMedia('(min-width: 1200px)');
+const horizontalCardsMedia = window.matchMedia('(min-width: 768px)');
+const reducedMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-hamburger.addEventListener('click', ()=>{
-    hamburger.classList.toggle('active');
-    mobile_menu.classList.toggle('active');
+const setMenuOpen = (isOpen) => {
+    menuButton.classList.toggle('active', isOpen);
+    mobileMenu.classList.toggle('active', isOpen);
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+};
+
+menuButton.addEventListener('click', () => {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
 });
 
-document.addEventListener('scroll', ()=>{
-    var scroll_position = window.scrollY;
-    if (scroll_position > 250){
-        header.style.backgroundColor = '#29323c';
-    } else {
-        header.style.backgroundColor = 'transparent';
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+        setMenuOpen(false);
+        menuButton.focus();
     }
 });
 
-menu_item.forEach(item=>{
-    item.addEventListener('click', ()=>{
-        hamburger.classList.toggle('active');
-    mobile_menu.classList.toggle('active');
+const updateHeader = () => {
+    header.classList.toggle('scrolled', window.scrollY > 250);
+};
+
+document.addEventListener('scroll', updateHeader, { passive: true });
+desktopMedia.addEventListener('change', () => setMenuOpen(false));
+updateHeader();
+
+menuItems.forEach((item) => {
+    item.addEventListener('click', () => {
+        setMenuOpen(false);
+    });
+});
+
+interestCards.forEach((card) => {
+    card.addEventListener('focus', () => {
+        if (!horizontalCardsMedia.matches) {
+            return;
+        }
+
+        requestAnimationFrame(() => {
+            card.scrollIntoView({
+                behavior: reducedMotionMedia.matches ? 'auto' : 'smooth',
+                block: 'center'
+            });
+        });
     });
 });
