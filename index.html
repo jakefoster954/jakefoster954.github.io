@@ -2,44 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jake Foster's personal website, interests, and contact information.">
     <link rel="stylesheet" href="style.css">
     <title>Jake Foster</title>
-    <link rel="shortcut icon" href="img/favicon-me.png">
+    <link rel="icon" type="image/png" href="img/favicon-me.png">
 </head>
 <body>
     <!-- Header Section -->
-    <section id="header">
+    <header id="header">
         <div class="header container">
-            <div class="nav-bar">
+            <nav class="nav-bar" aria-label="Main navigation">
                 <div class="brand">
-                    <a href="#hero"><h1><span>J</span>ake <span>F</span>oster</h1></a>
+                    <a href="#hero" class="brand-name"><span>J</span>ake <span>F</span>oster</a>
                 </div>
                 <div class="nav-list">
-                    <div class="hamburger">
-                        <div class="bar"></div>
-                    </div>
-                    <ul>
-                        <li><a href="#hero" data-after="Home">Home</a></li>
-                        <li><a href="#about" data-after="About">About</a></li>
-                        <li><a href="#projects"data-after="Projects">Interests</a></li>
-                        <li><a href="#contact" data-after="Contact">Contact</a></li>
+                    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="main-menu" aria-expanded="false">
+                        <span class="bar"></span>
+                    </button>
+                    <ul id="main-menu">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Interests</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-            </div>
+            </nav>
         </div>
-    </section>
+    </header>
     <!-- End Header Section -->
 
+    <main>
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero container">
             <div>
-                <h1>Hello, <span></span></h1>
-                <h1>My Name is <span></span></h1>
-                <h1>Jake <span></span></h1>
-                <a href="#about" type="button" class="cta">Continue</a> <!--Call To Action-->
+                <h1 class="hero-title">
+                    <span class="hero-line">Hello,<span class="reveal-box"></span></span>
+                    <span class="hero-line">My name is<span class="reveal-box"></span></span>
+                    <span class="hero-line">Jake<span class="reveal-box"></span></span>
+                </h1>
+                <a href="#about" class="cta">Continue</a>
             </div>
         </div>
     </section>
@@ -54,10 +57,9 @@
                 </div>
             </div>
             <div class="col-right">
-                <h1 class="section-title">About <span>me</span></h1>
-                <h2></h2>
+                <h2 class="section-title">About <span>me</span></h2>
                 <p><span>Hello, world!</span></p>
-                <p>On this site you will be able to find some of my interests, as well as my contact details. If you are intereseted in my previous tech projects, check out my <a href="https://github.com/jakefoster954">GitHub</a>.
+                <p>On this site you will be able to find some of my interests, as well as my contact details. If you are interested in my previous tech projects, check out my <a href="https://github.com/jakefoster954">GitHub</a>.
                 </p>
                 <p>
                     For more information, download my CV.
@@ -69,122 +71,121 @@
     <!-- End About Me Section -->
 
     <!-- Projects Section -->
-    <Section id=projects>
+    <section id="projects">
         <div class="projects container">
             <div class="projects-header">
-                <h1 class=section-title>Personal <span>Interests</span></h1>
+                <h2 class="section-title">Personal <span>Interests</span></h2>
             </div>
             <div class="all-projects">
-                <div class="project-item">
+                <article class="project-item" tabindex="0" aria-labelledby="interest-bcs">
                     <div class="project-info">
-                        <h1>BCS Committee</h1>
-                        <h2>Education Liaison Officer</h2>
+                        <h3 id="interest-bcs">BCS Committee</h3>
+                        <p class="project-subtitle">Education Liaison Officer</p>
                         <p>I have been involved with the BCS Birmingham branch since 2018.
                             Outside work hours, I am often found searching for speakers, hosting events, and supporting tech related projects in the local community.
                         </p>
                     </div>
                     <div class="project-img">
-                        <img src="./img/BCS.png" alt="BCS logo">
+                        <img src="./img/BCS.png" alt="BCS logo" width="1920" height="1080" loading="lazy">
                     </div>
-                </div>
-                <div class="project-item">
+                </article>
+                <article class="project-item" tabindex="0" aria-labelledby="interest-coding">
                     <div class="project-info">
-                        <h1>Coding Competitions/<wbr>Challenges</h1>
-                        <h2>Hash code and CTFs</h2>
+                        <h3 id="interest-coding">Coding Competitions/<wbr>Challenges</h3>
+                        <p class="project-subtitle">Hash Code and CTFs</p>
                         <p>Throughout the year, I try to engage in GoogleHashcode, as well as a range of CTF competitions.
                             I recently discovered AdventOfCode - a great way to learn a new programming language over the festive period.
                              </p>
                     </div>
                     <div class="project-img">
-                        <img src="./img/Google-Hash-Code.jpg" alt="Google Hash Code logo">
+                        <img src="./img/Google-Hash-Code.jpg" alt="Google Hash Code logo" width="800" height="450" loading="lazy">
                     </div>
-                </div>
-                <div class="project-item">
+                </article>
+                <article class="project-item" tabindex="0" aria-labelledby="interest-board-games">
                     <div class="project-info">
-                        <h1>Board Games</h1>
-                        <h2>Gloomhaven</h2>
+                        <h3 id="interest-board-games">Board Games</h3>
+                        <p class="project-subtitle">Gloomhaven</p>
                         <p>I love to spend my time playing board games. My latest obsession is the board game Gloomhaven. A campaign style dungeon crawler.</p>
                     </div>
                     <div class="project-img">
-                        <img src="./img/Gloomhaven.jpg" alt="Gloomhaven board game">
+                        <img src="./img/Gloomhaven.jpg" alt="Gloomhaven board game" width="842" height="588" loading="lazy">
                     </div>
-                </div>
-                <div class="project-item">
+                </article>
+                <article class="project-item" tabindex="0" aria-labelledby="interest-snooker">
                     <div class="project-info">
-                        <h1>Snooker</h1>
-                        <h2></h2>
+                        <h3 id="interest-snooker">Snooker</h3>
                         <p>Easy to learn but difficult to master. A great social game that can be played rain or shine.
-                            There are lots of snooker halls around, and i'm always up for a game.</p>
+                            There are lots of snooker halls around, and I'm always up for a game.</p>
                     </div>
                     <div class="project-img">
-                        <img src="./img/Snooker.jpg" alt="Snooker table">
+                        <img src="./img/Snooker.jpg" alt="Snooker table" width="1200" height="675" loading="lazy">
                     </div>
-                </div>
+                </article>
             </div>
         </div>
-    </Section>
+    </section>
     <!-- End Projects Section -->
 
     <!-- Contact Seciton -->
     <section id="contact">
         <div class="contact container">
             <div>
-                <h1 class="section-title">Contact <span>Info</span></h1>
+                <h2 class="section-title">Contact <span>Info</span></h2>
             </div>
             <div class="contact-items">
-                <div class="contact-item">
+                <a class="contact-item" href="tel:+447393929300">
                     <div class="icon">
-                        <img src="https://img.icons8.com/bubbles/100/000000/phone.png"/>
+                        <img src="https://img.icons8.com/bubbles/100/000000/phone.png" alt="" width="100" height="100" loading="lazy">
                     </div>
                     <div class="contact-info">
-                        <h1>Phone</h2>
-                        <h2>+44 73<!--353574-->93929300</h2>
+                        <h3>Phone</h3>
+                        <p>+44 7393 929300</p>
                     </div>
-                </div>
-                <div class="contact-item">
+                </a>
+                <a class="contact-item" href="mailto:jakefoster954@gmail.com">
                     <div class="icon">
-                        <img src="https://img.icons8.com/bubbles/100/000000/new-post.png"/>
+                        <img src="https://img.icons8.com/bubbles/100/000000/new-post.png" alt="" width="100" height="100" loading="lazy">
                     </div>
                     <div class="contact-info">
-                        <h1>Email</h2>
-                        <h2>jake<!-- @talktalk.net-->foster954&commat;gmail&period;com</h2>
+                        <h3>Email</h3>
+                        <p>jakefoster954@gmail.com</p>
                     </div>
-                </div>
-                <div class="contact-item">
+                </a>
+                <a class="contact-item" href="https://www.google.com/maps/search/?api=1&amp;query=Birmingham%2C%20UK">
                     <div class="icon">
-                        <img src="https://img.icons8.com/bubbles/100/000000/map-marker.png"/>
+                        <img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" alt="" width="100" height="100" loading="lazy">
                     </div>
                     <div class="contact-info">
-                        <h1>Address</h2>
-                        <h2>Birmingham</h2>
+                        <h3>Location</h3>
+                        <p>Birmingham, UK</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section> 
     <!-- End Contact Seciton -->
-    <section id="footer">
+    </main>
+    <footer id="footer">
         <div class="footer container">
             <div class="brand">
-                <h1><span>J</span>ake <span>F</span>oster</h1>
+                <p class="brand-name"><span>J</span>ake <span>F</span>oster</p>
             </div>
-            <h2></h2>
             <div class="social-icon">
                 <div class="social-item">
-                    <a href="https://www.facebook.com/jake.foster.35110"><img src="https://img.icons8.com/nolan/64/facebook-new.png" alt=""></a>
+                    <a href="https://www.facebook.com/jake.foster.35110" aria-label="Facebook"><img src="https://img.icons8.com/nolan/64/facebook-new.png" alt="" width="64" height="64" loading="lazy"></a>
                 </div>
                 <div class="social-item">
-                    <a href="https://github.com/jakefoster954"><img src="https://img.icons8.com/nolan/64/github.png" alt=""></a>
+                    <a href="https://github.com/jakefoster954" aria-label="GitHub"><img src="https://img.icons8.com/nolan/64/github.png" alt="" width="64" height="64" loading="lazy"></a>
                 </div>
                 <div class="social-item">
-                    <a href="https://www.linkedin.com/in/jake-foster-b433a6173/"><img src="https://img.icons8.com/nolan/64/linkedin.png" alt=""></a>
+                    <a href="https://www.linkedin.com/in/jake-foster-b433a6173/" aria-label="LinkedIn"><img src="https://img.icons8.com/nolan/64/linkedin.png" alt="" width="64" height="64" loading="lazy"></a>
                 </div>
             </div>
-            <p>Copyright &copy 2022 Jake. All rights reserved</p>
+            <p>Copyright &copy; 2026 Jake. All rights reserved.</p>
         </div>
-    </section>
+    </footer>
     <!-- Footer Seciton -->
     <!-- End Footer Seciton -->
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
 </body>
 </html>

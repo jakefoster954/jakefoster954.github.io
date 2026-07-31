@@ -71,7 +71,7 @@ p span {
     margin-top: 30px;
     transition: .3s ease;
     /* Slow start, then quick, then slow end */
-    transition-property: background-color color;
+    transition-property: background-color, color;
 }
 
 .cta:hover {
@@ -79,14 +79,22 @@ p span {
     background-color: #f9812a;
 }
 
-.brand h1 {
+.brand-name {
+    display: inline-block;
     font-size: 3rem;
+    font-weight: 700;
     text-transform: uppercase;
     color: white;
 }
 
-.brand h1 span {
+.brand-name span {
     color: #f9812a;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #f9812a;
+    outline-offset: 4px;
 }
 
 /* Header Section */
@@ -96,7 +104,7 @@ p span {
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: auto;
 }
 
@@ -104,6 +112,10 @@ p span {
     min-height: 8vh;
     background-color: rgba(31, 30, 30, 0.24);
     transition: .3s ease background-color;
+}
+
+#header .header.scrolled {
+    background-color: #29323c;
 }
 
 #header .header .nav-bar {
@@ -130,11 +142,15 @@ p span {
     align-items: center;
     z-index: 1;
     overflow-x: hidden;
-    transition: .5s ease left;
+    visibility: hidden;
+    pointer-events: none;
+    transition: left .5s ease;
 }
 
 #header .nav-list ul.active {
     left: 0;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 #header .nav-list ul a {
@@ -147,25 +163,12 @@ p span {
     padding: 20px;
     display: block;
     transition: .3s ease;
-    transition-property: background-color color;
+    transition-property: background-color, color;
 }
 
-#header .nav-list ul a::after {
-    content: attr(data-after);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    color: rgba(240, 248, 255, 0.021);
-    font-size: 13rem;
-    letter-spacing: 50px;
-    z-index: -1;
-    transition: .3s ease letter-spacing;
-}
-
-#header .nav-list ul li:hover a::after {
-    transform: translate(-50%, -50%) scale(1);
-    letter-spacing: initial;
+#header .nav-list ul a:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 3px #f9812a;
 }
 
 #header .nav-list ul li:hover a {
@@ -175,7 +178,8 @@ p span {
 #header .hamburger {
     height: 60px;
     width: 60px;
-    display: inline-block;
+    padding: 0;
+    background: transparent;
     border: 3px solid white;
     border-radius: 50%;
     position: relative;
@@ -186,6 +190,11 @@ p span {
     cursor: pointer;
     transform: scale(.8);
     margin-right: 20px;
+}
+
+#header .hamburger:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px #f9812a;
 }
 
 #header .hamburger::after {
@@ -264,30 +273,33 @@ p span {
     justify-content: flex-start;
 }
 
-#hero h1 {
+#hero .hero-title {
+    font-size: 4rem;
+}
+
+#hero .hero-line {
     display: block;
     width: fit-content;
-    font-size: 4rem;
     position: relative;
     color: transparent;
     animation: text_reveal 1s ease forwards;
     animation-delay: 1s;
 }
 
-#hero h1:nth-child(1) {
+#hero .hero-line:nth-child(1) {
     animation-delay: 1s;
 }
 
-#hero h1:nth-child(2) {
+#hero .hero-line:nth-child(2) {
     animation-delay: 2s;
 }
 
-#hero h1:nth-child(3) {
+#hero .hero-line:nth-child(3) {
     animation: text_reveal_name 1s ease forwards;
     animation-delay: 3s;
 }
 
-#hero h1 span {
+#hero .reveal-box {
     position: absolute;
     top: 0;
     left: 0;
@@ -298,96 +310,21 @@ p span {
     animation-delay: .5s;
 }
 
-#hero h1:nth-child(1) span {
+#hero .hero-line:nth-child(1) .reveal-box {
     animation-delay: .5s
 }
 
-#hero h1:nth-child(2) span {
+#hero .hero-line:nth-child(2) .reveal-box {
     animation-delay: 1.5s
 }
 
-#hero h1:nth-child(3) span {
+#hero .hero-line:nth-child(3) .reveal-box {
     animation-delay: 2.5s
 }
 
 /* End Hero Section */
 
-/* Services Section */
-
-#services {}
-
-#services .services {
-    flex-direction: column;
-    text-align: center;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 100px 50px;
-}
-
-#services .service-top p {
-    text-align: left;
-}
-
-#services .service-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-}
-
-#services .service-item {
-    flex-basis: 80%;
-    /*width only 80% */
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    padding: 30px;
-    border-radius: 30px;
-    background-image: url(./img/img-1.png);
-    background-size: cover;
-    margin: 10px 5%;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-
-#services .service-item::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-    opacity: .9;
-    z-index: -1;
-}
-
-#services .service-bottom .icon {
-    height: 80px;
-    width: 80px;
-    margin: 20px;
-}
-
-#services .service-item h2 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-#services .service-item p {
-    color: white;
-    text-align: left;
-}
-
-/* End Services Section */
-
 /* Projects Section */
-
-#projects {}
 
 #projects .projects {
     flex-direction: column;
@@ -412,10 +349,25 @@ p span {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
     width: 80%;
     margin: 20px auto;
     overflow: hidden;
     border-radius: 10px;
+}
+
+#projects .project-item:focus-visible {
+    outline: none;
+}
+
+#projects .project-item:focus-visible::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border: 3px solid #f9812a;
+    border-radius: inherit;
+    pointer-events: none;
 }
 
 #projects .project-info {
@@ -431,12 +383,12 @@ p span {
     color: white;
 }
 
-#projects .project-info h1 {
+#projects .project-info h3 {
     font-size: 4rem;
     font-weight: 500;
 }
 
-#projects .project-info h2 {
+#projects .project-info .project-subtitle {
     font-size: 1.8rem;
     font-weight: 500;
     margin-top: 10px;
@@ -468,7 +420,8 @@ p span {
     transition: .3s ease transform;
 }
 
-#projects .project-item:hover .project-img img {
+#projects .project-item:hover .project-img img,
+#projects .project-item:focus-visible .project-img img {
     transform: scale(1.1);
 }
 
@@ -545,11 +498,11 @@ p span {
 
 #contact .contact-item {
     width: 80%;
-    padding: 20px;
+    color: black;
     text-align: center;
     border-radius: 10px;
     padding: 30px;
-    margin: 30px;
+    margin: 30px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -568,16 +521,19 @@ p span {
     margin-bottom: 10px;
 }
 
-#contact .contact-info h1 {
+#contact .contact-info h3 {
     font-size: 2.5rem;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-#contact .contact-info h2 {
+#contact .contact-info a,
+#contact .contact-info p {
+    color: black;
     font-size: 1.3rem;
     line-height: 2rem;
     font-weight: 500;
+    overflow-wrap: anywhere;
 }
 
 /* End Contacts */
@@ -595,15 +551,6 @@ p span {
     padding-bottom: 10px;
 }
 
-#footer h2 {
-    color: white;
-    font-weight: 500;
-    font-size: 1.8rem;
-    letter-spacing: .1rem;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 #footer .social-icon {
     display: flex;
     margin-bottom: 30px;
@@ -615,6 +562,27 @@ p span {
     margin: 0 5px;
 }
 
+#footer .social-item a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#footer .social-item a:focus-visible {
+    outline: none;
+}
+
+#footer .social-item a:focus-visible::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    z-index: 1;
+    border: 2px solid #f9812a;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
 #footer .social-item img {
     filter: grayscale(1);
     transition: .3s ease filter;
@@ -624,7 +592,7 @@ p span {
     filter: grayscale(0);
 }
 
-#footer p {
+#footer .footer > p {
     color: white;
     font-size: 1.3rem;
 }
@@ -675,22 +643,16 @@ p span {
 @media only screen and (min-width: 768px) {
     .cta {
         font-size: 2.5rem;
-        padding: 20px 60px
+        padding: 20px 60px;
     }
-    h1.section-title {
+    .section-title {
         font-size: 6rem;
     }
     /* Hero */
-    #hero h1 {
+    #hero .hero-title {
         font-size: 7rem;
     }
     /* End Hero */
-    /* Services */
-    #services .service-bottom .service-item {
-        flex-basis: 45%;
-        margin: 2.5%
-    }
-    /* End Services */
     /* Project */
     #projects .project-item {
         height: 400px;
@@ -729,7 +691,7 @@ p span {
         text-align: left;
         padding: 30px;
     }
-    #about .about .col-right h1 {
+    #about .about .col-right h2 {
         text-align: left;
         padding: 30px;
     }
@@ -740,7 +702,6 @@ p span {
         padding: 100px 0;
         align-items: center;
         justify-content: center;
-        min-width: 20vh;
     }
     #contact .contact .contact-items {
         width: 100%;
@@ -784,6 +745,8 @@ p span {
         height: auto;
         width: fit-content;
         background-color: transparent;
+        visibility: visible;
+        pointer-events: auto;
     }
     #header .nav-list ul li {
         display: inline-block;
@@ -795,14 +758,36 @@ p span {
         display: none;
     }
     /* End Header */
-    #services .service-bottom .service-item {
-        flex-basis: 22%;
-        margin: 1.5%;
-    }
-    #services .service-top p {
-        max-width: 700px;
-        margin: 0 auto;
-    }
 }
 
 /* End Media Query For Desktop */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    #hero .hero-line {
+        animation: none;
+        color: white;
+    }
+
+    #hero .hero-line:nth-child(3) {
+        animation: none;
+        color: #f9812a;
+    }
+
+    #hero .reveal-box {
+        display: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-delay: 0s !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-delay: 0s !important;
+        transition-duration: .01ms !important;
+    }
+}
